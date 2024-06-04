@@ -4,19 +4,21 @@ using Microsoft.UI.Windowing;
 using Windows.Graphics;
 #endif
 
+using MauiPlanets.Views;
+
 namespace MauiPlanets;
 
 public partial class App : Application
 {
-	const int WindowWidth = 540;
-	const int WindowHeight = 1200;
+    const int WindowWidth = 540;
+    const int WindowHeight = 1200;
 
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
-		Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
-		{
+        Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
+        {
 #if WINDOWS
 			var mauiWindow = handler.VirtualView;
 			var nativeWindow = handler.PlatformView;
@@ -25,8 +27,9 @@ public partial class App : Application
 			WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(windowHandle);
 			AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 			appWindow.Resize(new SizeInt32(WindowWidth, WindowHeight));
-#endif 
-		});
-		MainPage = new NavigationPage(new StartPage());
-	}
+#endif
+        });
+
+        MainPage = new NavigationPage(new StartPage());
+    }
 }
