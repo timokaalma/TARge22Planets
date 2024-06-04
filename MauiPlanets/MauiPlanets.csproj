@@ -16,7 +16,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.mauiplanets</ApplicationId>
-		<ApplicationIdGuid>acc390f4-3b16-4ea5-bab3-6f586a99052c</ApplicationIdGuid>
+		<ApplicationIdGuid>8863c978-53a3-4128-920f-c882cefebf9e</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -49,19 +49,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\StartPage.xaml.cs">
-	    <DependentUpon>StartPage.xaml</DependentUpon>
-	  </Compile>
+	  <AndroidResource Remove="k\**" />
+	  <Compile Remove="k\**" />
+	  <EmbeddedResource Remove="k\**" />
+	  <MauiCss Remove="k\**" />
+	  <MauiXaml Remove="k\**" />
+	  <None Remove="k\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\StartPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <None Include="MauiPlanets - Backup.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
+		<MauiXaml Update="Views\PlanetDetailsPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\PlanetsPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\StartPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>
